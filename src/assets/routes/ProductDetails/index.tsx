@@ -25,10 +25,9 @@ categiries:
 
   {
     id:3,
-    name: "smartTv"
+    name: "SmartTv"
   },
   ]
- 
 }
 
 export default function ProductDetails (){
@@ -38,8 +37,8 @@ export default function ProductDetails (){
           <section id="product-details-section" className="dsc-container">
            <ProductDetailsCard product={product}/>
             <div className="dsc-btn-page-container">
-              <ButtonPrimary/>
-              <ButtonInverse/>
+              <ButtonPrimary value= "comprar"/>
+              <ButtonInverse value= "Inicio"/>
             </div>
           </section>
         </main>

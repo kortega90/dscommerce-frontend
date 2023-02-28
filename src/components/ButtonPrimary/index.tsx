@@ -1,6 +1,12 @@
+import { useDebugValue } from 'react';
 import './styles.css'
-export default function ButtonPrimary() {
+
+type Props = {
+  value: string;
+}
+
+export default function ButtonPrimary({value}:Props) {
   return (<div className="dsc-btn dsc-btn-blue">
-    Comprar
+    {value}
     </div>);
 }

@@ -9,6 +9,6 @@ import ProductDetailsCard from "./components/ProductDetailsCard";
 
 export default function App() {
   return (
-    <ProductDetails/>
+    <Catalog/>
   );
 }
