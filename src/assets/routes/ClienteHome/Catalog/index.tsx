@@ -1,10 +1,10 @@
 import './styles.css'
 import computerImg from '../../../assets/pc.jpg'
-import HeaderClient from '../../../components/HeaderClient';
-import SearchBar from '../../../components/SearchBar';
-import CatalogCard from '../../../components/CatalogCard';
-import ButtonNextPage from '../../../components/ButtonNextPage';
-import { ProductDTO } from '../../../model/product';
+import HeaderClient from '../../../../components/HeaderClient';
+import SearchBar from '../../../../components/SearchBar';
+import CatalogCard from '../../../../components/CatalogCard';
+import ButtonNextPage from '../../../../components/ButtonNextPage';
+import { ProductDTO } from '../../../../model/product';
 
 const product: ProductDTO = {
   id:2,
@@ -35,7 +35,6 @@ export default function Catalog(){
 
     return (
         <>
-        <HeaderClient/>
         <main>
       <section id="catalog-section" className ="dsc-container">
         <SearchBar/>
