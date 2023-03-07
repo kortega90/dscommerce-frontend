@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import ButtonInverse from "../../../components/ButtonInverse";
 import ButtonPrimary from "../../../components/ButtonPrimary";
@@ -23,7 +24,11 @@ export default function ProductDetails() {
 
           <div className="dsc-btn-page-container">
             <ButtonPrimary value="comprar" />
+
+            <Link to={"/"}>
             <ButtonInverse value="Inicio" />
+            </Link>
+
           </div>
         </section>
       </main>
