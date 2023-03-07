@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import HeaderClient from "../../../components/HeaderClient";
+import HeaderClient from "../../components/HeaderClient";
 
 export default function ClientHome(){
 
@@ -8,5 +8,5 @@ export default function ClientHome(){
         <HeaderClient/>
         <Outlet/>
         </>
-    );
+    )
 }

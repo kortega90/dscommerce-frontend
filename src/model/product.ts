@@ -7,5 +7,5 @@ export type ProductDTO = {
     description:string;
     price:number;
     imgUrl: string;
-    categiries: CategoryDTO[];
+    categories: CategoryDTO[];
 }

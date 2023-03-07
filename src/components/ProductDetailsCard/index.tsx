@@ -20,7 +20,7 @@ export default function ProductDetailsCard({product}:Props){
               </p>
               <div className="dsc-category-container">
                 {
-                product.categiries.map(x => (<ProductCategory name={x.name} /> ))
+                product.categories.map(x => (<ProductCategory name={x.name} /> ))
                 }
                 
               </div>
