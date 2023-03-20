@@ -1,30 +1,37 @@
+import { useEffect, useState } from 'react';
 import './styles.css'
-export default function Cart () {
+import * as cartService from '../../../services/cart-service'
+import { OrderDTO } from '../../../model/order';
 
-    const cart ={
-            items: [
-            {
-            productId: 4,
-            quantity: 1,
-            name: "PC Gamer",
-            price: 1200,
-            imgUrl: "https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/4-big.jpg"
-            },
-            {
-            productId: 5,
-            quantity: 2,
-            name: "Rails for Dummies",
-            price: 100.99,
-            imgUrl: "https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/5-big.jpg"
-            }
-            ]  
+const cart ={
+    items: [
+    {
+    productId: 4,
+    quantity: 1,
+    name: "PC Gamer",
+    price: 1200,
+    imgUrl: "https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/4-big.jpg"
+    },
+    {
+    productId: 5,
+    quantity: 2,
+    name: "Rails for Dummies",
+    price: 100.99,
+    imgUrl: "https://raw.githubusercontent.com/devsuperior/dscatalog-resources/master/backend/img/5-big.jpg"
     }
+    ]  
+}
+export default function Cart () {
+ 
+    const [cart,setCart] = useState<OrderDTO>();
+
     return(
         <main>
       <section id="cart-container-section" className ="dsc-container">
         <div className ="dsc-card dsc-mb20">
 
             {
+            
               cart.items.map(item => (
                 <div key={item.productId} className ="dsc-cart-item-container dsc-line-bottom">
                 <div className ="dsc-cart-item-left">
