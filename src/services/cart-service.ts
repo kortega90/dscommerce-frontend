@@ -4,7 +4,6 @@ import { ProductDTO } from "../model/product";
 
 
 export function saveCart(cart: OrderDTO){
-    
     cartRepository.save(cart);
 }
 
