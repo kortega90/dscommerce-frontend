@@ -2,6 +2,7 @@ import "./styles.css";
 import { useEffect, useState } from "react";
 import * as userService from "../../../services/user-Service";
 import { userDTO } from "../../../model/user";
+import { Navigate, useNavigate } from "react-router-dom";
 
 export default function AdminHome() {
   const [user, setUser] = useState<userDTO>();
@@ -11,9 +12,6 @@ export default function AdminHome() {
       .then(response => {
         setUser(response.data);
         console.log(response.data);
-      })
-      .catch( error => {
-        console.log("Error", error);
       });
   }, []);
   return (
