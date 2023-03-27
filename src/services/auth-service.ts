@@ -3,6 +3,7 @@ import QueryString from "qs";
 import { CredentialsDTO } from "../model/auth";
 import { CLIENT_ID, CLIENT_SECRET } from "../utils/system";
 import { requestBackend } from "../utils/request";
+import * as accessTokenRepository from "../localStorage/AccessTokenRepository";
 
 export function loginRequest(loginData: CredentialsDTO){
     const headers ={
@@ -19,4 +20,16 @@ export function loginRequest(loginData: CredentialsDTO){
         headers:headers,
     }
    return requestBackend(config);
+}
+
+export function logout(){
+    accessTokenRepository.remove();
+}
+
+export function saveAccessToken(token: string){
+    accessTokenRepository.save(token);
+}
+
+export function agetAccssesToken(){
+    accessTokenRepository.get();
 }

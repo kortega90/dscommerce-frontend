@@ -1,6 +1,8 @@
 //import "./App.css";
 import { useState } from "react";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Admin from "./routes/Admin";
+import AdminHome from "./routes/Admin/AdminHome";
 
 import ClientHome from "./routes/ClienteHome";
 import Cart from "./routes/ClienteHome/Cart";
@@ -27,6 +29,9 @@ export default function App() {
             />
             <Route path="cart" element={<Cart />} />
             <Route path="login" element={<Login />} />
+          </Route>
+          <Route path="/admin/" element= {<Admin/>}>
+           <Route index element= {<AdminHome/>}/>
           </Route>
           <Route path="*" element={<Navigate to={"/"} />} />
         </Routes>
