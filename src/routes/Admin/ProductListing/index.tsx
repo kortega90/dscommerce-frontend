@@ -6,12 +6,24 @@ import { useEffect, useState } from "react";
 import { ProductDTO } from "../../../model/product";
 import SearchBar from "../../../components/SearchBar";
 import ButtonNextPage from "../../../components/ButtonNextPage";
+import DialogInfo from "../../../components/DialogInfo";
+import DialogConfirmation from "../../../components/DialogConfirmation";
 
 type QueryParams = {
   page: number;
   name: string;
 };
 export default function ProductListing() {
+
+  const [dialogInfoData, setDialogInfoData] = useState ({
+    visible: false,
+    message: "Operação com Sucesso!"
+  });
+  const [dialogConfirmationData, setDialogConfirmationData] = useState ({
+    visible: false,
+    message: "Tem Certeza?"
+  });
+
   const [isLastPage, setIsLastPage] = useState(false);
   const [products, setProducts] = useState<ProductDTO[]>([]);
 
@@ -35,6 +47,17 @@ export default function ProductListing() {
   }
   function handleNextPageClick() {
     setQueryParams({ ...queryParams, page: queryParams.page + 1 });
+  }
+  function handleDialogInfoClose(){
+    setDialogInfoData({...dialogInfoData, visible: false});
+  }
+  function handleDeleteClick(){
+    setDialogConfirmationData({...dialogConfirmationData, visible: true});
+  }
+
+  function handleDialogConfirmationAnswer(answer: boolean){
+    console.log(answer)
+    setDialogConfirmationData({...dialogConfirmationData, visible: false});
   }
   return (
     <main>
@@ -67,7 +90,7 @@ export default function ProductListing() {
                     <td className="dsc-tb768">R$ {product.price.toFixed(2)}</td>
                     <td className="dsc-txt-left">{product.name}</td>
                     <td><img className="dsc-product-listing-btn"src={penIcon}alt="Editar"/></td>
-                    <td><img className="dsc-product-listing-btn"src={tashIcon} alt="Deletar"/>
+                    <td><img onClick={handleDeleteClick} className="dsc-product-listing-btn"src={tashIcon} alt="Deletar"/>
                     </td>
                   </tr>
                 ))
@@ -81,6 +104,14 @@ export default function ProductListing() {
             <ButtonNextPage onNextPage ={handleNextPageClick}/>
         }
       </section>
+      {
+        dialogInfoData.visible &&
+        <DialogInfo message={dialogInfoData.message} onDialogClose={handleDialogInfoClose} />
+      }
+            {
+        dialogConfirmationData.visible &&
+        <DialogConfirmation message={dialogConfirmationData.message} onDialogAnswer={handleDialogConfirmationAnswer} />
+      }
     </main>
   );
 }
