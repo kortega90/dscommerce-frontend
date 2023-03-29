@@ -286,12 +286,7 @@ nav a {
   border-spacing: 0;
   border-collapse: collapse;
 }
-.dsc-dialog-btn-container{
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
-}
+
 .dsc-table thead {
   height: 55px;
   font-size: 14px;
@@ -397,4 +392,14 @@ nav a {
   font-size: 20px;
   color: var(--dsc-color-font-primary);
   margin-bottom: 20px;
+}
+
+.dsc-dialog-btn-container{
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+}
+.dsc-dialog-btn{
+  width: 100%;
 }
