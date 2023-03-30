@@ -17,3 +17,10 @@ export function updateAll(inputs: any, newValues: any){
     }
     return newInputs;
 }
+
+export function validate(inputs: any, name: string){
+
+    const isInvalid = !inputs[name].validation(inputs[name].value);
+    return{...inputs,[name]:{...inputs[name], invalid: isInvalid.toString}}
+
+}

@@ -14,6 +14,7 @@ export default function AdminHome() {
       });
   }, []);
   return (
+
     <main>
       <section id="admin-home-section" className="dsc-container">
         <h2 className="dsc-section-title dsc-mb20">
@@ -21,5 +22,6 @@ export default function AdminHome() {
         </h2>
       </section>
     </main>
+    
   );
 }

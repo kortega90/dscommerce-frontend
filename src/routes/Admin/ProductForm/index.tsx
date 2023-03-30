@@ -27,6 +27,10 @@ export default function ProductForm(){
       name: "price",
       type: "number",
       placeholder: "Preço",
+      validaion: function(value:any){
+        return Number(value) >0;
+      },
+      message: "Favor informar um valor positivo"
     },
     imgUrl: {
       value: "",
