@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import FormInput from "../../../components/FormInput";
 import * as forms from "../../../utils/forms"
 import * as  productService from "../../../services/product-service"
+import FormTextArea from "../../../components/FormTextArea";
 
 
 
@@ -42,6 +43,17 @@ export default function ProductForm(){
       name: "imgUrl",
       type: "text",
       placeholder: "Imagem",
+    },
+    description: {
+      value: "",
+      id: "description",
+      name: "description",
+      type: "text",
+      placeholder: "Description",
+      validation: function(value:string){
+        return value.length >= 10;
+      },
+      message: "Favor informar uma description minimo de 10 caracteres"
     },
   });
   useEffect(() => {
@@ -94,7 +106,16 @@ export default function ProductForm(){
                   className="dsc-form-control "
                   onChange={handleInputChange}
                 />
+              </div>
 
+              <div>
+              <FormTextArea                  
+                  { ...formData.description}
+                  onTurnDirty={handleTurnDirty}
+                  className="dsc-form-control dsc-textarea"
+                  onChange={handleInputChange}
+                />
+                <div className="dsc-form-error">{formData.description.message}</div>
               </div>
 
             </div>
