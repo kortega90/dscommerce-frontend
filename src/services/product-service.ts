@@ -1,4 +1,5 @@
 import axios, { AxiosRequestConfig } from "axios";
+import { ProductDTO } from "../model/product";
 import { requestBackend } from "../utils/request";
 import { BASE_URL } from "../utils/system";
 
@@ -33,3 +34,14 @@ export function deleteById(id: number) {
   }
   return requestBackend(config)
 }
+
+export function updateRequest(obj: ProductDTO){
+  const config: AxiosRequestConfig = {
+    method: "PUT",
+    url: `/products/${obj.id}`,
+    withCredentials:true,
+    data: obj
+  }
+  return requestBackend(config)
+}
+
