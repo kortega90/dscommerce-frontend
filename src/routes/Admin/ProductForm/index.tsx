@@ -105,10 +105,15 @@ export default function ProductForm() {
     if (isEditing){
       requestBody.id = params.productId
     }
-    productService.updateRequest(requestBody)
+
+    const request = isEditing 
+    ? productService.updateRequest(requestBody)
+    :productService.inserteRequest(requestBody);
+
+    request
     .then(() => {
       navigate("/admin/products")
-    })
+    });
   }
 
   return (
