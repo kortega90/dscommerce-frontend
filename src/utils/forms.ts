@@ -19,8 +19,9 @@ export function updateAll(inputs: any, newValues: any){
 }
 
 export function validate(inputs: any, name: string){
-
+    if (!inputs[name].validation){
+        return inputs;
+    }
     const isInvalid = !inputs[name].validation(inputs[name].value);
-    return{...inputs,[name]:{...inputs[name], invalid: isInvalid.toString}}
-
+    return{...inputs,[name]:{...inputs[name], invalid: isInvalid.toString()}}
 }
