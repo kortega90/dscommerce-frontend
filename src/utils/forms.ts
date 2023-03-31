@@ -73,3 +73,13 @@ export function hasAnyInvalid(inputs:any){
     }
     return false;
 }
+
+export function setBackendErrors(inputs: any, errors:any[]){
+   const newInpusts = {...inputs};
+   errors.forEach(item => {
+    newInpusts[item.fieldName].message = item.message;
+    newInpusts[item.fieldName].dirty = "true";
+    newInpusts[item.fieldName].invalid = "true";
+   });
+   return newInpusts;
+}
