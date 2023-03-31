@@ -415,3 +415,7 @@ nav a {
 .dsc-form-control[data-dirty="true"][data-invalid="true"] ~ div {
   display: unset;
 }
+.dsc-form-select-container{
+padding: unset;
+height: unset;
+}
