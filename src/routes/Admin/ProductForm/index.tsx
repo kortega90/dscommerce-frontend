@@ -96,11 +96,13 @@ export default function ProductForm() {
   }
   function handleSubmit(event: any) {
     event.preventDefault();
+
     const formDateValidated = forms.dirtyAndValidateAll(formData);
     if (forms.hasAnyInvalid(formDateValidated)){
       setFormData(formDateValidated);
       return;
     }
+    
     const requestBody = forms.toValues(formData);
     if (isEditing){
       requestBody.id = params.productId
